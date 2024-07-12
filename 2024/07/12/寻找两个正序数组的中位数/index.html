@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            WB's Blog
+            寻找两个正序数组的中位数
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -32,332 +32,114 @@
 <meta name="generator" content="Hexo 7.2.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/index.css">
-<div id="count"></div>
-<div id="header" >
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-title">Welcome to My Blog</h1>
-                <h2 class="header-description" id="hitokoto"></h2>
-                <h3 class="header-info" id="hitokotoAuthor"></h3>
+                <h1 class="header-subtitle">寻找两个正序数组的中位数</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-07-12
+                        </span>
+                        
+                            
+                                <span id="/2024/07/12/寻找两个正序数组的中位数/" class="leancloud_visitors" data-flag-title="寻找两个正序数组的中位数">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/07/12/寻找两个正序数组的中位数/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">刷题</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">力扣</span>
+                        
+                    
+                </div>
             
         </div>
     </div>
-    
-        <a class="scroll-down" href="javascript:;" target="_self" data-offset="-45">
-            <i class="scroll-down-icon iconfont icon-return"></i>
-        </a>
     
 </div>
 <div id="container">
     
-        
-            <!-- 首页 -->
-            <div class="articles">
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/median-of-two-sorted-arrays/">4. 寻找两个正序数组的中位数</a></p>
+<p>答案</p>
+<p>二分查找：时间复杂度要求为O(log(m+n))</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//算法复杂度要求为O(log(m+n))</span></span><br><span class="line">        <span class="comment">//保证第一个数组为较短长度的一个</span></span><br><span class="line">        <span class="keyword">if</span>(nums1.<span class="built_in">size</span>() &gt; nums2.<span class="built_in">size</span>()) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">findMedianSortedArrays</span>(nums2, nums1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//i为第一个数组分割线的位置，j为第二个数组分割线的位置</span></span><br><span class="line">        <span class="comment">//即确定i即可确定j,j=left_size-i</span></span><br><span class="line">        <span class="comment">//即任务为确定i的位置,i的范围为[0,m]</span></span><br><span class="line">        <span class="comment">//二分法确定i的位置</span></span><br><span class="line">        <span class="type">int</span> m = nums1.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> n = nums2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> left_size = (m + n + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> right = m;       </span><br><span class="line">        <span class="comment">//要求：num1[i-1]&lt;=nums2[j],nums1[i]&gt;nums[j-1]</span></span><br><span class="line">        <span class="comment">//left和right不断逼近直至left&gt;=right</span></span><br><span class="line">                <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> i = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="type">int</span> j = left_size - i;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Ensure the indices are within bounds before accessing elements</span></span><br><span class="line">            <span class="keyword">if</span> (i &lt; m &amp;&amp; nums1[i] &lt; nums2[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                left = i + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> i = left;</span><br><span class="line">            <span class="type">int</span> j = left_size - i;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> nums1_left_max = (i == <span class="number">0</span>) ? INT_MIN : nums1[i - <span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> nums1_right_min = (i == m) ? INT_MAX : nums1[i];</span><br><span class="line">            <span class="type">int</span> nums2_left_max = (j == <span class="number">0</span>) ? INT_MIN : nums2[j - <span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> nums2_right_min = (j == n) ? INT_MAX : nums2[j];</span><br><span class="line">            <span class="keyword">if</span> ((m + n) % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">max</span>(nums1_left_max, nums2_left_max);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">return</span> (<span class="type">double</span>)(<span class="built_in">max</span>(nums1_left_max, nums2_left_max) + <span class="built_in">min</span>(nums1_right_min, nums2_right_min)) / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
                 
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/07/12/%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/">寻找两个正序数组的中位数</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-07-12
-                            </span>
-                            
-                                
-                                    <span id="/2024/07/12/寻找两个正序数组的中位数/" class="leancloud_visitors" data-flag-title="寻找两个正序数组的中位数">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/07/12/寻找两个正序数组的中位数/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/07/11/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/">无重复字符的最长子串</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-07-11
-                            </span>
-                            
-                                
-                                    <span id="/2024/07/11/无重复字符的最长子串/" class="leancloud_visitors" data-flag-title="无重复字符的最长子串">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/07/11/无重复字符的最长子串/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/07/11/%E6%9A%91%E6%9C%9F%E5%9F%B9%E8%AE%AD%E4%BB%BB%E5%8A%A1%E4%BA%8C/">暑期培训任务二</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-07-11
-                            </span>
-                            
-                                
-                                    <span id="/2024/07/11/暑期培训任务二/" class="leancloud_visitors" data-flag-title="暑期培训任务二">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/07/11/暑期培训任务二/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/07/10/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/">两数相加</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-07-10
-                            </span>
-                            
-                                
-                                    <span id="/2024/07/10/两数相加/" class="leancloud_visitors" data-flag-title="两数相加">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/07/10/两数相加/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/07/09/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">两数之和</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-07-09
-                            </span>
-                            
-                                
-                                    <span id="/2024/07/09/两数之和/" class="leancloud_visitors" data-flag-title="两数之和">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/07/09/两数之和/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/07/08/%E5%AF%BB%E6%89%BE%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E5%BF%83%E4%B8%8B%E6%A0%87/">寻找数组的中心下标</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-07-08
-                            </span>
-                            
-                                
-                                    <span id="/2024/07/08/寻找数组的中心下标/" class="leancloud_visitors" data-flag-title="寻找数组的中心下标">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/07/08/寻找数组的中心下标/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/07/08/%E6%9A%91%E6%9C%9F%E5%9F%B9%E8%AE%AD%E4%BB%BB%E5%8A%A1%E4%B8%80/">暑期培训任务一</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-07-08
-                            </span>
-                            
-                                
-                                    <span id="/2024/07/08/暑期培训任务一/" class="leancloud_visitors" data-flag-title="暑期培训任务一">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/07/08/暑期培训任务一/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/06/23/CMake%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">CMake基础知识</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-06-23
-                            </span>
-                            
-                                
-                                    <span id="/2024/06/23/CMake基础知识/" class="leancloud_visitors" data-flag-title="CMake基础知识">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/06/23/CMake基础知识/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/06/22/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/">深度学习环境的配置</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-06-22
-                            </span>
-                            
-                                
-                                    <span id="/2024/06/22/深度学习环境的配置/" class="leancloud_visitors" data-flag-title="深度学习环境的配置">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/06/22/深度学习环境的配置/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/06/19/MAP%E7%9A%84%E8%AE%A1%E7%AE%97/">MAP的计算</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-06-19
-                            </span>
-                            
-                                
-                                    <span id="/2024/06/19/MAP的计算/" class="leancloud_visitors" data-flag-title="MAP的计算">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/06/19/MAP的计算/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
+                <p class="end">__END__</p>
             </div>
-            
-            
-        
-    <div class="pagination-bottom">
-        <div class="pagination">
-            
-                <a href="/page/2/">下一页</a>
-            
+            <div class="article-footer">
+                <div class="suffix-box" style="display: flex; align-items: center;">
+    <div class="suffix-box-left">
+        <img src="https://cdn.jsdelivr.net/gh/1944195627wb/MyBlog@main/image/sidebar/head.png" alt="波">
+    </div>
+    <div class="suffix-box-right" style="flex: 1; margin-left: 10px;">
+        <div>
+            <span class="suffix-box-title">文章作者：</span>波
+        </div>
+        <div>
+            <span class="suffix-box-title">文章出处：</span><a href="/2024/07/12/%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" target="_blank">寻找两个正序数组的中位数</a>
+        </div>
+        <div>
+            <span class="suffix-box-title">作者签名：</span>唯有热爱，可抵岁月漫长
         </div>
     </div>
+</div>
 
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tags/%E5%8A%9B%E6%89%A3/">力扣</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                    
+                        <a href="/2024/07/11/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" class="next-prefix">» </a> 下一篇：    <a href="/2024/07/11/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="发布于 2024-07-11 09:00">无重复字符的最长子串</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
     
 </div>
     <div id="footer">
@@ -389,7 +171,7 @@
             <div class="menu-list">
                 <ul>
                     
-                        <li class=" active "><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
                     
                         <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
                     

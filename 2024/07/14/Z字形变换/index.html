@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            归档
+            Z字形变换
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -32,15 +32,40 @@
 <meta name="generator" content="Hexo 7.2.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">归档</h1>
+                <h1 class="header-subtitle">Z字形变换</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-07-14
+                        </span>
+                        
+                            
+                                <span id="/2024/07/14/Z字形变换/" class="leancloud_visitors" data-flag-title="Z字形变换">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/07/14/Z字形变换/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">刷题</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">力扣</span>
+                        
+                    
                 </div>
             
         </div>
@@ -49,97 +74,71 @@
 </div>
 <div id="container">
     
-        
-            <!-- 归档页面、分类归档页面、标签归档页面 -->
-            <div class="articles">
-                <div class="articles-wrap">
-                    <span class="archive-move-on"></span>
-                    <span class="archive-counter">
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/zigzag-conversion/">6. Z 字形变换</a></p>
+<p>方法：巧立flag</p>
+<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">convert</span><span class="params">(string s, <span class="type">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//一个字符则返回</span></span><br><span class="line">        <span class="keyword">if</span> (numRows &lt; <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        <span class="comment">//初始化每行的字符串为空</span></span><br><span class="line">        <span class="function">vector&lt;string&gt; <span class="title">rows</span><span class="params">(numRows)</span></span>;</span><br><span class="line">        <span class="comment">//立flag驱使每行的字符串增加的方向变化</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, flag = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            rows[i].<span class="built_in">push_back</span>(c);</span><br><span class="line">            <span class="comment">//如果遍历到字符串头部和尾部，那么就改变递增方向</span></span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || i == numRows <span class="number">-1</span>)</span><br><span class="line">                <span class="comment">//下一次则变化方向</span></span><br><span class="line">                flag = - flag;</span><br><span class="line">            <span class="comment">//每次递增或递减行数</span></span><br><span class="line">            i += flag;</span><br><span class="line">        &#125;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="comment">//将每一行的字符串进行相加</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> string &amp;row : rows)</span><br><span class="line">            res += row;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box" style="display: flex; align-items: center;">
+    <div class="suffix-box-left">
+        <img src="https://cdn.jsdelivr.net/gh/1944195627wb/MyBlog@main/image/sidebar/head.png" alt="波">
+    </div>
+    <div class="suffix-box-right" style="flex: 1; margin-left: 10px;">
+        <div>
+            <span class="suffix-box-title">文章作者：</span>波
+        </div>
+        <div>
+            <span class="suffix-box-title">文章出处：</span><a href="/2024/07/14/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/" target="_blank">Z字形变换</a>
+        </div>
+        <div>
+            <span class="suffix-box-title">作者签名：</span>唯有热爱，可抵岁月漫长
+        </div>
+    </div>
+</div>
+
+                
+                    <div class="category">
+                        分类：
                         
-                            目前共计 16 篇日志，继续加油！
+                            <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
                         
-                    </span>
-                    
-                    
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
                         
-                            <div class="archive-title">
-                                <h2 class="archive-year">2024</h2>
-                            </div>
-                            
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/2024/06/23/CMake%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span>CMake基础知识</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-23</span>
-                                </div>
-                            </div>
-                        </div>
+                            <a href="/tags/%E5%8A%9B%E6%89%A3/">力扣</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
                     
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/2024/06/22/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/"><span>深度学习环境的配置</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-22</span>
-                                </div>
-                            </div>
-                        </div>
                     
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/2024/06/19/MAP%E7%9A%84%E8%AE%A1%E7%AE%97/"><span>MAP的计算</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-19</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/2024/06/19/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/"><span>浅拷贝和深拷贝</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-19</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/2024/06/19/GitHub%E4%B8%8A%E4%BC%A0/"><span>GitHub上传</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-19</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/2024/06/19/Python%E5%AE%89%E8%A3%85%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"><span>Python安装与环境配置</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-19</span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/2024/06/19/Welcome%20to%20My%20Blog/"><span>Welcome to My Blog</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">06-19</span>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="/2024/07/13/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" class="next-prefix">» </a> 下一篇：    <a href="/2024/07/13/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" title="发布于 2024-07-13 09:00">最长回文子串</a>
                     
                 </div>
             </div>
             
+    <div class="article-comments">
         
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
     
 </div>
     <div id="footer">

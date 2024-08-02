@@ -89,7 +89,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408021328159.png" alt="image-20240802132828037"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#图片中对应的数据顺序与对应含义为</span></span><br><span class="line">&lt;bbox_left&gt;,&lt;bbox_top&gt;,&lt;bbox_width&gt;,&lt;bbox_height&gt;,&lt;score&gt;,&lt;object_category&gt;,&lt;truncation&gt;,&lt;occlusion&gt;</span><br><span class="line"></span><br><span class="line">即：左上角坐标，宽，高，置信度，类别，截断，遮挡</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-数据增强-可选"><a href="#2-数据增强-可选" class="headerlink" title="2.数据增强(可选)"></a>2.数据增强(可选)</h3><p><strong>数据增强也就是通过某些手段对改变原有数据增加数据量</strong>，例如模拟光线增强，高斯模糊，椒盐噪声，HSV色调改变等等，可以自己通过之前的写脚本，这里我推荐一款好用的可视化数据增强软件，所支持的增强类型还是挺多的，不过需要学习一下怎么用，还是比较容易上手的。</p>
+<h3 id="2-数据增强-可选"><a href="#2-数据增强-可选" class="headerlink" title="2.数据增强(可选)"></a>2.数据增强(可选)</h3><p><strong>数据增强也就是通过某些手段对改变原有数据增加数据量</strong>，例如模拟光线增强，高斯模糊，椒盐噪声，HSV色调改变等等，可以自己通过之前学的OpenCV写脚本，这里我推荐一款好用的可视化数据增强软件，所支持的增强类型还是挺多的，不过需要学习一下怎么用，还是比较容易上手的。</p>
 <p>链接：<a target="_blank" rel="noopener" href="https://github.com/Fafa-DL/Image-Augmentation">数据增强软件</a></p>
 <h3 id="3-数据划分"><a href="#3-数据划分" class="headerlink" title="3.数据划分"></a>3.数据划分</h3><p>我给你们的数据集是总体的，但是训练需要将数据划分为<strong>训练集和验证集</strong>，才能进行训练，你们需要自行写脚本将数据划分，这里我推荐利用K折交叉验证的方法对数据进行划分，你们可以了解了解该原理。</p>
 <p>链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Rocky6688/article/details/107296546">K折交叉验证原理</a></p>

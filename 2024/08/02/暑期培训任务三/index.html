@@ -84,7 +84,7 @@
 <h2 id="三-项目开展"><a href="#三-项目开展" class="headerlink" title="三.项目开展"></a>三.项目开展</h2><h3 id="1-数据集"><a href="#1-数据集" class="headerlink" title="1.数据集"></a>1.数据集</h3><p>在群里面问，可能你们不好意思回答的话，我就将标好的数据集给你们，但是，你们必须在开始前熟练掌握标数据的方法，标数据常用的有labelimg，labelme等等，你们可以选择一个喜欢用的标注工具。</p>
 <p>链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/javastart/article/details/127832933">标注工具</a></p>
 <p>在这里，我把标好的数据集直接给你们，但是我给你们的数据集不是标准的数据集格式，<strong>换句话来说，不是直接能用来训练的数据集，你们需要将标注文件通过自己写脚本将标注数据改为你所需要的格式</strong>，常见的有coco格式，yolo格式，voc格式等等，这要看你们所运用的框架，具体你们自己查阅资料。</p>
-<p>[数据集链接][<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1hzPsPH9TzZue1JQES6thzQ]">https://pan.baidu.com/s/1hzPsPH9TzZue1JQES6thzQ]</a>                           提取码：7tdw]</p>
+<p>[数据集链接][<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1hzPsPH9TzZue1JQES6thzQ]">https://pan.baidu.com/s/1hzPsPH9TzZue1JQES6thzQ]</a>                           提取码：7tdw</p>
 <p>在这里我说一下我给你们的数据集的标注文件格式，里面有一些对于某些框架是没有用的，需要做些处理。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408021328159.png" alt="image-20240802132828037"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#图片中对应的数据顺序与对应含义为</span></span><br><span class="line">&lt;bbox_left&gt;,&lt;bbox_top&gt;,&lt;bbox_width&gt;,&lt;bbox_height&gt;,&lt;score&gt;,&lt;object_category&gt;,&lt;truncation&gt;,&lt;occlusion&gt;</span><br><span class="line"></span><br><span class="line">即：左上角坐标，宽，高，置信度，类别，截断，遮挡</span><br></pre></td></tr></table></figure>

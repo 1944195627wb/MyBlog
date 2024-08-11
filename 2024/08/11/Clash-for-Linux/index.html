@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            归档
+            Clash for Linux
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -32,15 +32,40 @@
 <meta name="generator" content="Hexo 7.2.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">归档</h1>
+                <h1 class="header-subtitle">Clash for Linux</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-08-11
+                        </span>
+                        
+                            
+                                <span id="/2024/08/11/Clash-for-Linux/" class="leancloud_visitors" data-flag-title="Clash for Linux">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/08/11/Clash-for-Linux/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">Linux</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">环境配置</span>
+                        
+                    
                 </div>
             
         </div>
@@ -49,45 +74,107 @@
 </div>
 <div id="container">
     
-        
-            <!-- 归档页面、分类归档页面、标签归档页面 -->
-            <div class="articles">
-                <div class="articles-wrap">
-                    <span class="archive-move-on"></span>
-                    <span class="archive-counter">
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <p>很多小伙伴都知道Clash这个强大的东西，但是并不清楚Clash竟然如此强大，可以在Linux系统上部署并使用，今天我将这个方法告诉大家！</p>
+<p>Linux分为桌面版和服务版两种，桌面版是有图形界面的，server版仅有命令行的。下面会以Ubuntu系统为例分别讲解这两种方案。</p>
+<p>在此之前，你需要先购买一个VPN，获得一个订阅链接，这个订阅链接是后面必须的配置参数。</p>
+<p>这里推荐两个途径，相对来说都比较便宜。</p>
+<p><a target="_blank" rel="noopener" href="https://awyyds.fun/">阿伟云</a></p>
+<p><a href="%E6%80%A7%E4%BB%B7%E6%AF%94%E6%9C%BA%E5%9C%BA.net">性价比机场</a></p>
+<h2 id="一-Ubuntu桌面版"><a href="#一-Ubuntu桌面版" class="headerlink" title="一.Ubuntu桌面版"></a>一.Ubuntu桌面版</h2><h3 id="1-下载资源"><a href="#1-下载资源" class="headerlink" title="1.下载资源"></a>1.下载资源</h3><p><a target="_blank" rel="noopener" href="https://dl.gtk.pw/proxy/linux/">小猫咪Linux图形版</a></p>
+<h3 id="2-启动程序"><a href="#2-启动程序" class="headerlink" title="2.启动程序"></a>2.启动程序</h3><p>将第一步中，“小猫咪Linux图形版”的内容复制到ubuntu图形版机器中，然后双击运行<strong>cfw</strong>，就可以看到熟悉的页面，将订阅链接填入Profile就可以使用了。</p>
+<p>第一种方法可能失败，如果不行的话，在根目录文件打开终端运行以下命令行即可启动程序</p>
+<p><code>./cfw</code></p>
+<h3 id="3-配置节点"><a href="#3-配置节点" class="headerlink" title="3.配置节点"></a>3.配置节点</h3><p>后面配置的话跟Windows就差不多了，可以点击Start with Linux就可以开机自启动了</p>
+<p>就是你在前面的网站中购买好节点好后，然后复制其中的订阅地址，按下回车或者点击Download即可，然后选择一个延迟比较低的节点即可。</p>
+<h3 id="4-浏览器配置"><a href="#4-浏览器配置" class="headerlink" title="4.浏览器配置"></a>4.浏览器配置</h3><p>Linux用是火狐浏览器的话，需要配置一下网络端口。</p>
+<p>首先打开Clash程序，首页选择Port</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120232574.png" alt="image-20240812023206420"></p>
+<p>编辑端口，输入以规定一个端口号，这里我选择的是8080</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120246036.png" alt="Snipaste_2024-08-12_02-41-25"></p>
+<p>编辑好之后打开火狐浏览器的设置，然后搜索端口，设置为手动代理，然后端口号也设置成8080，按以下配置即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120248861.png" alt="2024-08-12 02-01-43 的屏幕截图"></p>
+<h3 id="5-验证是否配置成功"><a href="#5-验证是否配置成功" class="headerlink" title="5.验证是否配置成功"></a>5.验证是否配置成功</h3><p>打开浏览器，添加网址<a target="_blank" rel="noopener" href="https://www.google.com/%EF%BC%8C%E8%A7%82%E5%AF%9F%E6%98%AF%E5%90%A6%E8%83%BD%E5%A4%9F%E8%BF%9B%E5%85%A5%E6%90%9C%E7%B4%A2%E9%A1%B5%E9%9D%A2%EF%BC%8C%E5%A6%82%E6%9E%9C%E8%83%BD%E5%A4%9F%E5%87%BA%E7%8E%B0%E8%B0%B7%E6%AD%8C%E7%9A%84%E6%90%9C%E7%B4%A2%E6%A1%86%EF%BC%8C%E9%82%A3%E4%B9%88%E6%81%AD%E5%96%9C%E4%BD%A0%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F%EF%BC%81">https://www.google.com/，观察是否能够进入搜索页面，如果能够出现谷歌的搜索框，那么恭喜你配置成功！</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120252420.png" alt="2024-08-12 02-01-59 的屏幕截图"></p>
+<h2 id="二-Ubuntu服务版"><a href="#二-Ubuntu服务版" class="headerlink" title="二.Ubuntu服务版"></a>二.Ubuntu服务版</h2><h3 id="1-下载资源-1"><a href="#1-下载资源-1" class="headerlink" title="1.下载资源"></a>1.下载资源</h3><p><a target="_blank" rel="noopener" href="https://github.com/wnlen/clash-for-linux">小猫咪Linux服务版</a></p>
+<p>利用<code>git clone</code>将项目克隆至本地，或者直接将项目打包后的zip文件下载至本地</p>
+<h3 id="2-配置参数"><a href="#2-配置参数" class="headerlink" title="2.配置参数"></a>2.配置参数</h3><p>将第一步中克隆的”小猫咪Linux服务器版”的内容复制到ubuntu server机器中，然后cd到该文件夹目录中</p>
+<p>修改.env文件 将其中的 <strong>export CLASH_URL</strong>&#x3D;”订阅链接”,以下修改方式习惯用哪个就用哪个</p>
+<p><code>vim .env</code>或者 <code>nano .env</code>或者<code>gedit .env</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120312578.png" alt="image-20240812031206469"></p>
+<h3 id="3-开启服务"><a href="#3-开启服务" class="headerlink" title="3.开启服务"></a>3.开启服务</h3><p>运行以下命令</p>
+<p><code>sudo bash start.sh</code></p>
+<p>start.sh是开启服务的脚本</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120312929.png" alt="2024-08-12 02-15-06 的屏幕截图"></p>
+<h3 id="4-配置环境变量"><a href="#4-配置环境变量" class="headerlink" title="4.配置环境变量"></a>4.配置环境变量</h3><p><code>source /etc/profile.d/clash.sh</code></p>
+<h3 id="5-开启代理"><a href="#5-开启代理" class="headerlink" title="5.开启代理"></a>5.开启代理</h3><p><code>proxy_on</code></p>
+<h3 id="6-验证是否配置成功"><a href="#6-验证是否配置成功" class="headerlink" title="6.验证是否配置成功"></a>6.验证是否配置成功</h3><p><code>curl https://www.google.com/</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120313092.png" alt="2024-08-12 02-16-21 的屏幕截图"></p>
+<p>若出现返回的一堆网页代码，即配置成功</p>
+<h3 id="7-关闭代理"><a href="#7-关闭代理" class="headerlink" title="7.关闭代理"></a>7.关闭代理</h3><p><code>proxy_off</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120314031.png" alt="2024-08-12 02-16-37 的屏幕截图"></p>
+<p>注意：在使用过后记得要关闭代理！！！</p>
+<p>以上就是该文章的所有内容，希望能够帮助到大家，并且告诫大家一定要科学上网！！！</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box" style="display: flex; align-items: center;">
+    <div class="suffix-box-left">
+        <img src="https://cdn.jsdelivr.net/gh/1944195627wb/MyBlog@main/image/sidebar/head.png" alt="波">
+    </div>
+    <div class="suffix-box-right" style="flex: 1; margin-left: 10px;">
+        <div>
+            <span class="suffix-box-title">文章作者：</span>波
+        </div>
+        <div>
+            <span class="suffix-box-title">文章出处：</span><a href="/2024/08/11/Clash-for-Linux/" target="_blank">Clash for Linux</a>
+        </div>
+        <div>
+            <span class="suffix-box-title">作者签名：</span>唯有热爱，可抵岁月漫长
+        </div>
+    </div>
+</div>
+
+                
+                    <div class="category">
+                        分类：
                         
-                            目前共计 20 篇日志，继续加油！
+                            <a href="/categories/Linux/">Linux</a>
                         
-                    </span>
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
                     
                     
-                        
-                            <div class="archive-title">
-                                <h2 class="archive-year">2024</h2>
-                            </div>
-                            
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/2024/07/08/%E6%9A%91%E6%9C%9F%E5%9F%B9%E8%AE%AD%E4%BB%BB%E5%8A%A1%E4%B8%80/"><span>暑期培训任务一</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">07-08</span>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="/2024/08/02/%E6%9A%91%E6%9C%9F%E5%9F%B9%E8%AE%AD%E4%BB%BB%E5%8A%A1%E4%B8%89/" class="next-prefix">» </a> 下一篇：    <a href="/2024/08/02/%E6%9A%91%E6%9C%9F%E5%9F%B9%E8%AE%AD%E4%BB%BB%E5%8A%A1%E4%B8%89/" title="发布于 2024-08-02 11:00">暑期培训任务三</a>
                     
                 </div>
             </div>
             
+    <div class="article-comments">
         
-    <div class="pagination-bottom">
-        <div class="pagination">
-            
-                <a class="extend prev" rel="prev" href="/archives/2024/07/">上一页</a><a class="page-number" href="/archives/2024/07/">1</a><span class="page-number current">2</span>
-            
-        </div>
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
     </div>
-
+    
+ 
+        </div>
     
 </div>
     <div id="footer">

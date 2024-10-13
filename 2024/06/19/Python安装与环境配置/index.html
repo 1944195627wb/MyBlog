@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            Python安装与环境配置
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">Python安装与环境配置</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-06-19
+                        </span>
+                        
+                            
+                                <span id="/2024/06/19/Python安装与环境配置/" class="leancloud_visitors" data-flag-title="Python安装与环境配置">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/06/19/Python安装与环境配置/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">Python</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">环境配置</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="一-Python的安装"><a href="#一-Python的安装" class="headerlink" title="一.Python的安装"></a>一.Python的安装</h2><p>众所周知，Python是一门解释性语言，So?不可避免的我们需要安装一下Pyhon的解释器</p>
+<p>Python解释器的安装有两种：第一种就是直接安装在电脑系统中，第二种就是用Anaconda的创建虚拟环境（建议）</p>
+<h3 id="1-官网下载和安装"><a href="#1-官网下载和安装" class="headerlink" title="1.官网下载和安装"></a>1.官网下载和安装</h3><p>首先进入Python官网，下载链接：<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">下载 Python |Python.org</a></p>
+<p>选择你所要下载的Python版本</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406250102948.png" alt="image-20240625010231878"></p>
+<p>一般来说现在的电脑都是64位的，因此选择windows_64即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406250105136.png" alt="image-20240625010531065"></p>
+<p>下载完成之后进行安装</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406250110249.png" alt="image-20240625011032176"></p>
+<p>后面的安装步骤除了安装位置可以根据需要自己选择之外，其他选项选择默认即可</p>
+<p>安装完成之后，打开cmd后输入<code>python</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406250115080.png" alt="image-20240625011546021"></p>
+<p>若没有报错，并且输出类似语句，至此第一种方法Python安装完成。</p>
+<h3 id="2-Anaconda创建虚拟环境"><a href="#2-Anaconda创建虚拟环境" class="headerlink" title="2.Anaconda创建虚拟环境"></a>2.Anaconda创建虚拟环境</h3><p>Anaconda是一个python环境管理软件，封装了建立python下各种各样的依赖包，当用户需要使用的时候就从Anaconda的库中调取出来安装在指定的Anaconda环境中。</p>
+<p>首先之所以推荐Conda，比较好管理python环境和下载的包，使用Anaconda可以在一个系统上建立多个环境，而pip只能在原生系统上修改。试想一下，如果我们两份代码一个要求numpy&#x3D;1.19.0，另一个要求numpy&#x3D;1.21.0，那么单纯使用pip只能选择删去现有的pytorch去安装另一个，或者重新开一个服务器。但使用Anaconda我全都要.jpg，使用<code>conda activate  [环境名]</code> 的命令即可在不同环境之间轻松切换。</p>
+<p><strong>So？ Conda,启动！！！</strong></p>
+<p>首先下载Anaconda，一般两个选择，一个是官网，另一个是国内<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">镜像网站</a>（<strong>大家自行选择</strong>）。前者大家都懂，速度感人，所以国内一般选择后者镜像下载。</p>
+<p>选择一个版本后，选择对应的Windows-x86_64即可。</p>
+<p>下载完成之后，进行安装，安装的时候有两个地方需要注意</p>
+<p>第一,这里选择All Users</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251532530.png" alt="image-20240625153205404"></p>
+<p>然后选择你下载的地方，可以选择在D盘建立了一个新的文件夹，D:\Anaconda，注意这个文件夹不要使用中文或者空格、特殊字符。选择对应安装目录，点next。</p>
+<p>第二，这个地方选择第二个选项，是自己手动配置<strong>环境变量（后面有教程）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251545172.png" alt="image-20240625154210997"></p>
+<p>然后等待安装完成后，进行配置环境变量，任务栏搜索编辑系统环境变量，在系统环境变量Path中添加以下变量，将以下环境变量改成自己对应安装的Anaconda文件夹目录即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">D:\Anaconda </span><br><span class="line">D:\Anaconda\Scripts </span><br><span class="line">D:\Anaconda\Library\mingw-w64\bin</span><br><span class="line">D:\Anaconda\Library\bin</span><br></pre></td></tr></table></figure>
+
+<p>添加完成后记得点击确认，然后进行测试配置成功</p>
+<p>打开cmd输入<code>conda --version</code>或者<code>conda info</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251559417.png" alt="image-20240625155928328"></p>
+<p>若有以上信息打印，那么Anaconda环境配置成功</p>
+<p>然后对<strong>Anaconda进行配置和基础命令的学习</strong></p>
+<p>在任务栏搜索Anaconda prompt，打开之后会发现路径前有个base，因为本身为我们下载了一个base环境，解释器所处位置在<strong>path_to_Anaconda&#x2F;python.exe</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251626538.png" alt="image-20240625162657469"></p>
+<p>如果自己创建一个环境可以通过运行以下命令行进行下载，your_env_name是你想要创建环境名字，3.9是你python的版本，你可以按照自己需求选择，后面直接按y即可</p>
+<p><code>conda create -n your_env_name python=3.9</code></p>
+<p>如果要删除环境，输入命令行即可：</p>
+<p><code>conda remove your_env_name </code></p>
+<p>输入激活你python环境命令，即可进入你的环境</p>
+<p><code>conda activate your_env_name</code></p>
+<p>退出当前环境</p>
+<p><code>conda deactivate your_env_name</code></p>
+<p>查看所有环境</p>
+<p><code>conda env list</code></p>
+<p>所有你所保存的虚拟环境保存在以下文件夹内 <strong>path_to_Anaconda&#x2F;envs &#x2F;</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251632119.png" alt="image-20240625163220055"></p>
+<p>解释器所处位置在 <strong>path_to_Anaconda&#x2F;envs&#x2F;your_env_name&#x2F;python.exe</strong></p>
+<p>更多conda的命令可以去网上搜索,<a target="_blank" rel="noopener" href="https://blog.csdn.net/chenxy_bwave/article/details/119996001">学习链接</a></p>
+<p>现在假设你进入你创建的某个环境中想下载库</p>
+<p>首先得配置一下镜像：（镜像就是国外的某些库下载到国内了，因为直接到国外下载很慢）</p>
+<p>直接输入命令行：<code>pip config set global.index-url 镜像源</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">清华：https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">阿里云：http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">华中理工大学：http://pypi.hustunique.com/</span><br><span class="line">山东理工大学：http://pypi.sdutlinux.org/</span><br><span class="line">豆瓣：http://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure>
+
+<p>现在下载库,直接 <code>pip install 你想下载的库名称==什么版本</code> 或者<code>conda install 你想下载的库名称==什么版本</code>即可</p>
+<h2 id="二-代码编辑器的安装"><a href="#二-代码编辑器的安装" class="headerlink" title="二.代码编辑器的安装"></a>二.代码编辑器的安装</h2><p>虽然下载Python后有自带的IDLE,但是可以说是功能非常少，无法达到我们平常写代码的需求，因此我们需要下载一款适合自己的代码编辑器，Python的代码编辑器有很多，这里我推荐两款。</p>
+<h3 id="1-Pycharm"><a href="#1-Pycharm" class="headerlink" title="1.Pycharm"></a>1.Pycharm</h3><p>Pycharm可以说是为Python的打造的IDE，由JetBrains开发而成，支持的功能也是非常多。</p>
+<p>PyCharm针对每个平台都有Professional和Community两个版本，自己可根据自己的需要进行选择。</p>
+<p>Professional：专业版（建议选择专业版），功能强大，属于收费版，如果是学生的话可以去官网上申请学生福利专业版，可以支持ssh和jupyter等功能。</p>
+<p>Community：社区版，只支持Python开发，开源、免费，用作学习也够用。</p>
+<p><a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/download/?section=windows">Pycharm下载链接</a>，下载成功后进行安装</p>
+<p>1.修改安装路径，可以自己在D盘或者E盘新建一个文件夹作为安装目录</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251620875.png" alt="image-20240625162040804"></p>
+<p>然后点击安装，完成之后，打开Pycharm首页之后，新建一个项目，项目位置可以自己选择，然后pthon环境建议不要选择新建环境，因为他会将解释器嵌入项目中。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251645885.png" alt="image-20240625164524802"></p>
+<p>如果是选择第一种Python安装方式（官网下载），那么选择这个点三个点进行选择python解释器的位置，找到你刚在python安装的根目录下的python.exe即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251647201.png" alt="image-20240625164711147"></p>
+<p>如果你是用第二种Anaconda的方式，找到conda.exe,一般在Scripts的目录下，然后点击加载环境，可以使用现有环境，也可以创造新环境，如果使用现有环境可以在以下选择所要使用的环境。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251651722.png" alt="image-20240625232913828"></p>
+<p>配置完成后，点击创建项目即可。创建完成之后，即可进行在目录下新建python文件，写代码啦！！！</p>
+<p>当然可以下载一些Pycharm的插件，比如汉化插件、主题插件、GitHub Copilot等插件使自己的开发效率大大提高。</p>
+<h3 id="2-VsCode"><a href="#2-VsCode" class="headerlink" title="2.VsCode"></a>2.VsCode</h3><p>VsCode是微软开发的一款代码编辑器，VsCode只是一款文本编辑器，但是可以支持多种语言编辑，源于他拥有许多强大的插件。VsCode相对来说就比较简洁和高效。</p>
+<p>首先进入官网进行下载：<a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">下载地址</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251717670.png" alt="file_1719307078128_453"></p>
+<p>选择对应的电脑系统然后下载即可。</p>
+<p>下载完成之后，进行安装，VsCode安装过程就比较简洁，除了安装位置自己定义和创建快捷方式之外，其他默认即可</p>
+<p>安装完成之后，打开VsCode</p>
+<p>在VsCode扩展中先下载汉化插件，安装成功后，重新启动，然后在扩展中搜索Python插件，点击install即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251723025.png" alt="image-20240625172304958"></p>
+<p>然后在新建一个文件夹作为你的项目文件夹，VsCode打开你所新建的文件，在目录下新建一个python文件，例如demo.py</p>
+<p>然后在输入栏输入：<code>&gt;Select Interpreter</code>,点击第一个</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251728303.png" alt="image-20240625172818244"></p>
+<p>然后选择新建一个python环境或者现有的python环境即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202406251730985.png" alt="image-20240625173002929"></p>
+<p>当然，一样的，也可以下载一些其他好用的VsCode插件以提高开发效率。</p>
+<p><strong>至此以上就是Python的安装和环境配置的全部内容，感谢阅读，其中有什么错误，欢迎能够指正！！！</strong></p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box" style="display: flex; align-items: center;">
+    <div class="suffix-box-left">
+        <img src="https://cdn.jsdelivr.net/gh/1944195627wb/MyBlog@main/image/sidebar/head.png" alt="Felix_sheep">
+    </div>
+    <div class="suffix-box-right" style="flex: 1; margin-left: 10px;">
+        <div>
+            <span class="suffix-box-title">文章作者：</span>Felix_sheep
+        </div>
+        <div>
+            <span class="suffix-box-title">文章出处：</span><a href="/2024/06/19/Python%E5%AE%89%E8%A3%85%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" target="_blank">Python安装与环境配置</a>
+        </div>
+        <div>
+            <span class="suffix-box-title">作者签名：</span>唯有热爱，可抵岁月漫长
+        </div>
+    </div>
+</div>
+
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/categories/Python/">Python</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/06/19/GitHub%E4%B8%8A%E4%BC%A0/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/06/19/GitHub%E4%B8%8A%E4%BC%A0/" title="发布于 2024-06-19 09:09">GitHub上传</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/06/19/Welcome%20to%20My%20Blog/" class="next-prefix">» </a> 下一篇：    <a href="/2024/06/19/Welcome%20to%20My%20Blog/" title="发布于 2024-06-19 12:00">Welcome to My Blog</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div>前路虽远,但我们一直在路上</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+            <div class="menu-notice">
+                <span class="iconfont icon-notice"></span>
+                <div class="notice">
+                    <span>We are alive and forever young!</span>
+                </div>
+            </div>
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="https://cdn.jsdelivr.net/gh/1944195627wb/MyBlog@main/image/sidebar/head.png">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="https://cabbagehome.cn" target="_blank"><span>Felix_sheep</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/about" class="" target="_self"><span class="iconfont icon-about-fill"></span>信息</a></li>
+                    
+                        <li class=""><a href="javascript:;" class="search" target="_self"><span class="iconfont icon-search-menu"></span>搜索</a></li>
+                    
+                        <li class=""><a href="/comment" class="" target="_self"><span class="iconfont icon-comments-fill"></span>留言板</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.jpg"><span class="iconfont icon-qq"></span></a>
+                
+                    <a name="微信" href="javascript:;" class="image" target="_self" data="/image/sidebar/wechat.jpg"><span class="iconfont icon-wechat"></span></a>
+                
+                    <a name="GitHub" href="https://github.com/1944195627wb" class="" target="_blank" data=""><span class="iconfont icon-github"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "1944195627wb",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Felix_sheep",
+        User_Word        : "Welcome to My Blog",
+        UserAvatar       : "https://cdn.jsdelivr.net/gh/1944195627wb/MyBlog@main/image/sidebar/head.png",
+        WebsiteStartDate : "2024-06-17",
+        Home             : "https://cabbagehome.cn",
+
+        WebsiteTitleBlur         : "Hi",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/home/home_1.jpeg",
+            
+                "/image/home/home_2.jpg",
+            
+                "/image/home/home_3.jpg",
+            
+                "/image/home/home_4.jpeg",
+            
+        ],
+        HomeBannerText  : "唯有热爱，可抵岁月漫长",
+
+        ArticleHeaderImage : [
+            
+                "/image/back/back_1.jpg",
+            
+                "/image/back/back_2.jpg",
+            
+                "/image/back/back_3.jpg",
+            
+                "/image/back/back_4.jpg",
+            
+                "/image/back/back_5.jpg",
+            
+                "/image/back/back_6.jpg",
+            
+                "/image/back/back_7.jpg",
+            
+                "/image/back/back_8.jpg",
+            
+        ],
+
+        OtherBannerText : "唯有热爱，可抵岁月漫长",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : true,
+            notice : "We are alive and forever young!",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "信息",
+                    icon   : "icon-about-fill",
+                    href   : "/about",
+                    type   : "about",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "搜索",
+                    icon   : "icon-search-menu",
+                    href   : "javascript:;",
+                    type   : "",
+                    class  : "search",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "留言板",
+                    icon   : "icon-comments-fill",
+                    href   : "/comment",
+                    type   : "comment",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.jpg"
+                    },
+                
+                    {
+                        name   : "微信",
+                        icon   : "icon-wechat",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/wechat.jpg"
+                    },
+                
+                    {
+                        name   : "GitHub",
+                        icon   : "icon-github",
+                        href   : "https://github.com/1944195627wb",
+                        class  : "",
+                        target : "_blank",
+                        image  : ""
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div>前路虽远,但我们一直在路上</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+        FontIconExtend : "",
+        Search : {
+            applicationID : "PAXOYIM005",
+            apiKey        : "5958ed39d430ce8c1bae74ee5668edfe",
+            indexName     : "MyBlog",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : false,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "唯有热爱，可抵岁月漫长"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

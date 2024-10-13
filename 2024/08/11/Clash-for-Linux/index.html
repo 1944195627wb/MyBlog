@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            Clash for Linux
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">Clash for Linux</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-08-11
+                        </span>
+                        
+                            
+                                <span id="/2024/08/11/Clash-for-Linux/" class="leancloud_visitors" data-flag-title="Clash for Linux">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/08/11/Clash-for-Linux/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">Linux</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">环境配置</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <p>很多小伙伴都知道Clash这个强大的东西，但是并不清楚Clash竟然如此强大，可以在Linux系统上部署并使用，今天我将这个方法告诉大家！</p>
+<p>Linux分为桌面版和服务版两种，桌面版是有图形界面的，server版仅有命令行的。下面会以Ubuntu系统为例分别讲解这两种方案。</p>
+<p>在此之前，你需要先购买一个VPN，获得一个订阅链接，这个订阅链接是后面必须的配置参数。</p>
+<p>这里推荐两个途径，相对来说都比较便宜。</p>
+<p><a target="_blank" rel="noopener" href="https://awyyds.fun/">阿伟云</a></p>
+<p><a href="%E6%80%A7%E4%BB%B7%E6%AF%94%E6%9C%BA%E5%9C%BA.net">性价比机场</a></p>
+<h2 id="一-Ubuntu桌面版"><a href="#一-Ubuntu桌面版" class="headerlink" title="一.Ubuntu桌面版"></a>一.Ubuntu桌面版</h2><h3 id="1-下载资源"><a href="#1-下载资源" class="headerlink" title="1.下载资源"></a>1.下载资源</h3><p><a target="_blank" rel="noopener" href="https://dl.gtk.pw/proxy/linux/">小猫咪Linux图形版</a></p>
+<h3 id="2-启动程序"><a href="#2-启动程序" class="headerlink" title="2.启动程序"></a>2.启动程序</h3><p>将第一步中，“小猫咪Linux图形版”的内容复制到ubuntu图形版机器中，然后双击运行<strong>cfw</strong>，就可以看到熟悉的页面，将订阅链接填入Profile就可以使用了。</p>
+<p>第一种方法可能失败，如果不行的话，在根目录文件打开终端运行以下命令行即可启动程序</p>
+<p><code>./cfw</code></p>
+<h3 id="3-配置节点"><a href="#3-配置节点" class="headerlink" title="3.配置节点"></a>3.配置节点</h3><p>后面配置的话跟Windows就差不多了，可以点击Start with Linux就可以开机自启动了</p>
+<p>就是你在前面的网站中购买好节点好后，然后复制其中的订阅地址，按下回车或者点击Download即可，然后选择一个延迟比较低的节点即可。</p>
+<h3 id="4-浏览器配置"><a href="#4-浏览器配置" class="headerlink" title="4.浏览器配置"></a>4.浏览器配置</h3><p>Linux用是火狐浏览器的话，需要配置一下网络端口。</p>
+<p>首先打开Clash程序，首页选择Port</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120232574.png" alt="image-20240812023206420"></p>
+<p>编辑端口，输入以规定一个端口号，这里我选择的是8080</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120246036.png" alt="Snipaste_2024-08-12_02-41-25"></p>
+<p>编辑好之后打开火狐浏览器的设置，然后搜索端口，设置为手动代理，然后端口号也设置成8080，按以下配置即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120248861.png" alt="2024-08-12 02-01-43 的屏幕截图"></p>
+<h3 id="5-验证是否配置成功"><a href="#5-验证是否配置成功" class="headerlink" title="5.验证是否配置成功"></a>5.验证是否配置成功</h3><p>打开浏览器，添加网址<a target="_blank" rel="noopener" href="https://www.google.com/">https://www.google.com</a><br>观察是否能够进入搜索页面，如果能够出现谷歌的搜索框，那么恭喜你配置成功！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120252420.png" alt="2024-08-12 02-01-59 的屏幕截图"></p>
+<h2 id="二-Ubuntu服务版"><a href="#二-Ubuntu服务版" class="headerlink" title="二.Ubuntu服务版"></a>二.Ubuntu服务版</h2><h3 id="1-下载资源-1"><a href="#1-下载资源-1" class="headerlink" title="1.下载资源"></a>1.下载资源</h3><p><a target="_blank" rel="noopener" href="https://github.com/wnlen/clash-for-linux">小猫咪Linux服务版</a></p>
+<p>利用<code>git clone</code>将项目克隆至本地，或者直接将项目打包后的zip文件下载至本地</p>
+<h3 id="2-配置参数"><a href="#2-配置参数" class="headerlink" title="2.配置参数"></a>2.配置参数</h3><p>将第一步中克隆的”小猫咪Linux服务器版”的内容复制到ubuntu server机器中，然后cd到该文件夹目录中</p>
+<p>修改.env文件 将其中的 <strong>export CLASH_URL</strong>&#x3D;”订阅链接”,以下修改方式习惯用哪个就用哪个</p>
+<p><code>vim .env</code>或者 <code>nano .env</code>或者<code>gedit .env</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120312578.png" alt="image-20240812031206469"></p>
+<h3 id="3-开启服务"><a href="#3-开启服务" class="headerlink" title="3.开启服务"></a>3.开启服务</h3><p>运行以下命令</p>
+<p><code>sudo bash start.sh</code></p>
+<p>start.sh是开启服务的脚本</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120312929.png" alt="2024-08-12 02-15-06 的屏幕截图"></p>
+<h3 id="4-配置环境变量"><a href="#4-配置环境变量" class="headerlink" title="4.配置环境变量"></a>4.配置环境变量</h3><p><code>source /etc/profile.d/clash.sh</code></p>
+<h3 id="5-开启代理"><a href="#5-开启代理" class="headerlink" title="5.开启代理"></a>5.开启代理</h3><p><code>proxy_on</code></p>
+<h3 id="6-验证是否配置成功"><a href="#6-验证是否配置成功" class="headerlink" title="6.验证是否配置成功"></a>6.验证是否配置成功</h3><p><code>curl https://www.google.com/</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120313092.png" alt="2024-08-12 02-16-21 的屏幕截图"></p>
+<p>若出现返回的一堆网页代码，即配置成功</p>
+<h3 id="7-关闭代理"><a href="#7-关闭代理" class="headerlink" title="7.关闭代理"></a>7.关闭代理</h3><p><code>proxy_off</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1944195627wb/images@main/images/202408120314031.png" alt="2024-08-12 02-16-37 的屏幕截图"></p>
+<p>注意：在使用过后记得要关闭代理！！！</p>
+<p>以上就是该文章的所有内容，希望能够帮助到大家，并且告诫大家一定要科学上网！！！</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box" style="display: flex; align-items: center;">
+    <div class="suffix-box-left">
+        <img src="https://cdn.jsdelivr.net/gh/1944195627wb/MyBlog@main/image/sidebar/head.png" alt="Felix_sheep">
+    </div>
+    <div class="suffix-box-right" style="flex: 1; margin-left: 10px;">
+        <div>
+            <span class="suffix-box-title">文章作者：</span>Felix_sheep
+        </div>
+        <div>
+            <span class="suffix-box-title">文章出处：</span><a href="/2024/08/11/Clash-for-Linux/" target="_blank">Clash for Linux</a>
+        </div>
+        <div>
+            <span class="suffix-box-title">作者签名：</span>唯有热爱，可抵岁月漫长
+        </div>
+    </div>
+</div>
+
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/categories/Linux/">Linux</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/12/%E5%9B%9E%E6%96%87%E6%95%B0/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/12/%E5%9B%9E%E6%96%87%E6%95%B0/" title="发布于 2024-10-12 09:00">回文数</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/08/02/%E6%9A%91%E6%9C%9F%E5%9F%B9%E8%AE%AD%E4%BB%BB%E5%8A%A1%E4%B8%89/" class="next-prefix">» </a> 下一篇：    <a href="/2024/08/02/%E6%9A%91%E6%9C%9F%E5%9F%B9%E8%AE%AD%E4%BB%BB%E5%8A%A1%E4%B8%89/" title="发布于 2024-08-02 11:00">暑期培训任务三</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div>前路虽远,但我们一直在路上</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+            <div class="menu-notice">
+                <span class="iconfont icon-notice"></span>
+                <div class="notice">
+                    <span>We are alive and forever young!</span>
+                </div>
+            </div>
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="https://cdn.jsdelivr.net/gh/1944195627wb/MyBlog@main/image/sidebar/head.png">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="https://cabbagehome.cn" target="_blank"><span>Felix_sheep</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/about" class="" target="_self"><span class="iconfont icon-about-fill"></span>信息</a></li>
+                    
+                        <li class=""><a href="javascript:;" class="search" target="_self"><span class="iconfont icon-search-menu"></span>搜索</a></li>
+                    
+                        <li class=""><a href="/comment" class="" target="_self"><span class="iconfont icon-comments-fill"></span>留言板</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.jpg"><span class="iconfont icon-qq"></span></a>
+                
+                    <a name="微信" href="javascript:;" class="image" target="_self" data="/image/sidebar/wechat.jpg"><span class="iconfont icon-wechat"></span></a>
+                
+                    <a name="GitHub" href="https://github.com/1944195627wb" class="" target="_blank" data=""><span class="iconfont icon-github"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "1944195627wb",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Felix_sheep",
+        User_Word        : "Welcome to My Blog",
+        UserAvatar       : "https://cdn.jsdelivr.net/gh/1944195627wb/MyBlog@main/image/sidebar/head.png",
+        WebsiteStartDate : "2024-06-17",
+        Home             : "https://cabbagehome.cn",
+
+        WebsiteTitleBlur         : "Hi",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/home/home_1.jpeg",
+            
+                "/image/home/home_2.jpg",
+            
+                "/image/home/home_3.jpg",
+            
+                "/image/home/home_4.jpeg",
+            
+        ],
+        HomeBannerText  : "唯有热爱，可抵岁月漫长",
+
+        ArticleHeaderImage : [
+            
+                "/image/back/back_1.jpg",
+            
+                "/image/back/back_2.jpg",
+            
+                "/image/back/back_3.jpg",
+            
+                "/image/back/back_4.jpg",
+            
+                "/image/back/back_5.jpg",
+            
+                "/image/back/back_6.jpg",
+            
+                "/image/back/back_7.jpg",
+            
+                "/image/back/back_8.jpg",
+            
+        ],
+
+        OtherBannerText : "唯有热爱，可抵岁月漫长",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : true,
+            notice : "We are alive and forever young!",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "信息",
+                    icon   : "icon-about-fill",
+                    href   : "/about",
+                    type   : "about",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "搜索",
+                    icon   : "icon-search-menu",
+                    href   : "javascript:;",
+                    type   : "",
+                    class  : "search",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "留言板",
+                    icon   : "icon-comments-fill",
+                    href   : "/comment",
+                    type   : "comment",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.jpg"
+                    },
+                
+                    {
+                        name   : "微信",
+                        icon   : "icon-wechat",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/wechat.jpg"
+                    },
+                
+                    {
+                        name   : "GitHub",
+                        icon   : "icon-github",
+                        href   : "https://github.com/1944195627wb",
+                        class  : "",
+                        target : "_blank",
+                        image  : ""
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div>前路虽远,但我们一直在路上</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+        FontIconExtend : "",
+        Search : {
+            applicationID : "PAXOYIM005",
+            apiKey        : "5958ed39d430ce8c1bae74ee5668edfe",
+            indexName     : "MyBlog",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : false,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "唯有热爱，可抵岁月漫长"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>
